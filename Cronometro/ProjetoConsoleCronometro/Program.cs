@@ -27,7 +27,7 @@ namespace ProjetoConsoleCronometro
                 System.Environment.Exit(0);
 
 
-            StartCronometro(time * multiplicador);
+            PreStart(time * multiplicador);
             
             Console.ReadLine();
         }
@@ -44,6 +44,18 @@ namespace ProjetoConsoleCronometro
             return sb.ToString();
         }
 
+        public static void PreStart(int time)
+        {
+            Console.WriteLine("Ready...");
+            Thread.Sleep(1000);
+            Console.WriteLine("Set...");
+            Thread.Sleep(1000);
+            Console.WriteLine("Go...");
+            Thread.Sleep(3000);
+
+            StartCronometro(time);
+        }
+
         public static void StartCronometro(int temporizador)
         {
             int TempoAtual = 0;
@@ -57,6 +69,8 @@ namespace ProjetoConsoleCronometro
             }
 
             Console.WriteLine("Cronometro finalizado!");
+            Thread.Sleep(3000);
+            Environment.Exit(0);
         }
     }
 }
